@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LexBase - Upload Your Contract</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+             <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/LexBase1.png') }}" alt="LexBase Logo">
+            </div>
+        </header>
+
+        <div class="upload-box">
+            <h2>Select a PDF contract to upload:</h2>
+            <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+                <input type="file" name="filename" accept=".pdf" required>
+                <input type="submit" value="Upload File">
+            </form>
+
+            <div id="loading">
+                <div class="spinner"></div>
+                <p>Uploading... Please wait.</p>
+            </div>
+
+        </div>
+    </div>
+    
+
+    <script>
+    document.querySelector('form').addEventListener('submit', function () {
+        document.getElementById('loading').style.display = 'block';
+    });
+    </script>
+
+</body>
+</html>
+
+

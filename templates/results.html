@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LexBase - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+
+        .highlight-definition {
+        position: relative;
+        background-color: rgb(204, 107, 201);
+        font-weight: bold;
+        border-radius: 4px;
+        padding: 0 2px;
+        cursor: help;
+        }
+
+        .highlight-definition .definition-text {
+        visibility: hidden;
+        width: max-content;
+        max-width: 300px;
+        background-color: #333;
+        color: #fff;
+        text-align: left;
+        border-radius: 6px;
+        padding: 6px 10px;
+        position: absolute;
+        z-index: 10;
+        bottom: 125%; /* Show above the text */
+        left: 0;
+        opacity: 0;
+        transition: opacity 0.3s;
+        font-size: 12px;
+        white-space: normal;
+        }
+
+        .highlight-definition:hover .definition-text {
+        visibility: visible;
+        opacity: 1;
+        }
+
+
+        .results-box {
+            width: 90%;
+            max-width: 800px;
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+            padding: 30px;
+            overflow-y: auto;
+            max-height: 70vh;
+        }
+
+        .results-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .results-box pre {
+            white-space: pre-wrap;
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        a {
+            margin-top: 20px;
+            display: inline-block;
+            background: #78A6DB;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        a:hover {
+            background: #5B8BC5;
+        }
+
+
+        .red-flag {
+            background: #78A6DB;
+            border-left: 5px solid #9f2118;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin: 10px 0;
+            text-align: left;
+        }
+
+
+        .view-options {
+    margin-bottom: 20px;
+    padding-top: 80px;
+}
+
+.view-options button {
+    margin: 0 5px;
+    background: #5B8BC5;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.view-options button:hover {
+    background: #3E6FB1;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-logo">
+                <img src="{{ url_for('static', filename='images/LexBase1.png') }}" alt="LexBase Logo">
+            </div>
+        </header>
+
+
+        <div class="view-options">
+            <button onclick="showSection('flags')">Red Flags Only</button>
+            <button onclick="showSection('text')">Full Text Only</button>
+            <button onclick="showSection('both')">Show Both</button>
+        </div>
+
+
+        <hr>
+        <div class="results-box">
+
+
+
+            <div id="text-section" style="margin-top: 30px; " >
+                <h3> Full Extracted Text:</h3>
+                <div style="white-space: pre-wrap; background:#f0f0f0; padding:15px; border-radius:10px; max-height: 70vh; overflow-y: auto;">
+                    {{ text | safe }}
+                </div>
+            </div>    
+
+            <div id="flags-section">
+
+                <h2>Potentially Problematic Clauses </h2>
+                {% if flagged_clauses %}
+                    <h2> Red Flags</h2>
+                    {% for sentence, label in flagged_clauses %}
+                        <div class="red-flag">
+                            <strong>{{ label | title }} </strong><br>
+                            "{{ sentence }}"
+                        </div>
+                    {% endfor %}
+                
+                {% else %}
+                    <p>No potentially problematic clauses were detected in the document.</p>
+                {% endif %}
+            </div>            
+        </div>
+
+        <a href="{{ url_for('upload_file') }}">Upload another contract</a>
+    </div>
+
+
+
+    <script>
+function showSection(mode) {
+    const flags = document.getElementById("flags-section");
+    const text = document.getElementById("text-section");
+
+    if (mode === "flags") {
+        flags.style.display = "block";
+        text.style.display = "none";
+    } else if (mode === "text") {
+        flags.style.display = "none";
+        text.style.display = "block";
+    } else {
+        flags.style.display = "block";
+        text.style.display = "block";
+    }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LexBase - Contract Review Platform</title>
+    <!-- Adds Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+       body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: #7DA6DE;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    text-align: center;
+    color: #fff;
+    max-width: 600px;
+    padding: 20px;
+}
+
+.logo img {
+    max-width: 120px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: white;
+}
+
+.tagline {
+    font-size: 16px;
+    margin-bottom: 30px;
+    line-height: 1.5;
+}
+
+.button {
+    background: #5B8BC5;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.button:hover {
+    background: #3E6FB1;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #f0f0f0;
+}
+
+    </style>
+</head>
+    <body>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='images/LexBase1.png') }}" alt="LexBase Logo">
+        </div>
+
+
+
+        <h1>Welcome to LexBase</h1>
+
+        <p class="tagline">
+            <h3>LexBase is your smart legal assistant for reviewing rental agreements in the UK.</h3> 
+            Upload a contract to see key legal terms automatically highlighted with simple definitions.
+        </p>
+
+        <a href="{{ url_for('upload_file') }}" class="button">Start Upload</a>
+
+        <footer>
+            <p>Contact: hello@lexbase.co.uk</p>
+            <p>© 2025 LexBase. All rights reserved.</p>
+        </footer>
+
+    </div>
+</body>
+
+
+</html>
