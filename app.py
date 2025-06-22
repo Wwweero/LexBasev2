@@ -206,7 +206,7 @@ def results():
     # A dictionary of common tenancy terms
     keywords_with_definitions = {
         "deposit": "A sum of money held as security for the performance of the tenant's obligations.",
-        "landlord": "The person who owns and rents out the property.",
+        "landlord": "The person who owns and rents out the house.",
         "tenant": "The person who rents the property from the landlord.",
         "notice period": "The time required to give the other party before ending the tenancy.",
         "fixed term": "A tenancy with a set end date (e.g., 12 months).",
