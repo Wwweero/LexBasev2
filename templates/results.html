@@ -134,7 +134,7 @@
 
 
             <div id="text-section" style="margin-top: 30px; " >
-                <h3> Please find here the full extracted text from the contract:</h3>
+                <h3> Please find here your highlighted contract:</h3>
                 <div style="white-space: pre-wrap; background:#f0f0f0; padding:15px; border-radius:10px; max-height: 70vh; overflow-y: auto;">
                     {{ text | safe }}
                 </div>
@@ -144,7 +144,7 @@
 
                 <h2>Potentially Problematic Clauses </h2>
                 {% if flagged_clauses %}
-                    <h3> Red Flags</h3>
+                    <h3> Red Flags Found </h3>
                     {% for sentence, label in flagged_clauses %}
                         <div class="red-flag">
                             <strong>{{ label | title }} </strong><br>
