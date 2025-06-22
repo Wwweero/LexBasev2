@@ -89,6 +89,8 @@
         }
 
 
+
+
         .view-options {
     margin-bottom: 20px;
     padding-top: 80px;
@@ -144,7 +146,7 @@
 
                 <h2>Potentially Problematic Clauses </h2>
                 {% if flagged_clauses %}
-                    <h3> Red Flags Found </h3>
+                    <h3> Red Flags found </h3>
                     {% for sentence, label in flagged_clauses %}
                         <div class="red-flag">
                             <strong>{{ label | title }} </strong><br>
