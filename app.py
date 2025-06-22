@@ -214,7 +214,7 @@ def results():
         "gas safety": "Legal requirement for gas appliances to be safe.",
         "access": "When and how the landlord can enter the property.",
         "termination": "How the tenancy can legally end.",
-        "agreement": "The tenancy contract between landlord and tenant.",
+        "agreement": "The tenancy contract.",
         "assured shorthold tenancy":"A type of tenancy defined in the Housing Act 1988.",
         "property":"The premises being rented",
          "break clause": "A contract clause allowing the tenancy to be ended early by tenant, landlord, or both.",
@@ -236,7 +236,7 @@ def results():
 
     
     def highlight_terms(text, keywords_dict):
-        highlighted = set()  # Keeps track of words we've already highlighted
+        highlighted = set()  # Keeps track of already highlighted words
 
         def make_replacer(word):
             def replacer(match):
