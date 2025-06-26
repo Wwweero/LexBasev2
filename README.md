@@ -60,3 +60,16 @@ LexBasev2
 │ ├── upload.html
 │ └── results.html
 ```
+
+## Index Page
+<img width="1470" alt="Screenshot 2025-06-26 at 15 18 18" src="https://github.com/user-attachments/assets/149c540e-2d2b-44fd-8390-4668ab902251" />
+
+## Upload Page
+<img width="1470" alt="Screenshot 2025-06-26 at 15 19 15" src="https://github.com/user-attachments/assets/77fcc232-61aa-4026-8f01-7a015c1af963" />
+
+## Results Page
+<img width="1468" alt="Screenshot 2025-06-26 at 15 20 28" src="https://github.com/user-attachments/assets/702f050b-a513-42eb-a615-a7821f79dca9" />
+
+
+
+
